@@ -4,15 +4,16 @@ fun main(args: Array<String>) {
     val captcha1 = input
             .split("")
             .filter { it != "" }
-            .map { str -> Integer.valueOf(str) }
             .filterIndexed { index, _ -> input[index] == input[(index + 1) % input.length] }
+            .map { Integer.parseInt(it) }
             .sum()
     val captcha2 = input
             .split("")
             .filter { it != "" }
-            .map { str -> Integer.valueOf(str) }
             .filterIndexed { index, _ -> input[index] == input[(index + (input.length / 2)) % input.length] }
+            .map { Integer.parseInt(it) }
             .sum()
+
     println("capcha1: " + captcha1)
     println("capcha2: " + captcha2)
 }
